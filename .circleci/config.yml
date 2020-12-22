@@ -36,10 +36,10 @@ jobs:
       - run: 
           name: Hello World File Output
           command: |
-            ls -la /
-            echo "Text to output here. Some text..." > /tmp/my-work/output.txt
+            ls -la /tmp
+            echo "Text to output here. Some text..." > /tmp/output.txt
       - persist_to_workspace:
-          root: /tmp/my-work
+          root: /tmp
           paths:
               - output.txt
 
@@ -48,7 +48,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-          at: /tmp/my-work
+          at: /tmp
       - run:
           name: Print Output File
           command: |
