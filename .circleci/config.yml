@@ -36,7 +36,6 @@ jobs:
       - run: 
           name: Hello World File Output
           command: |
-            ls -la /tmp
             echo "Text to output here. Some text..." > /tmp/output.txt
       - persist_to_workspace:
           root: /tmp
@@ -52,8 +51,9 @@ jobs:
       - run:
           name: Print Output File
           command: |
-            ls -la ~/
-            cat output.txt
+            pwd
+            ls -la /tmp
+            cat /tmp/output.txt
 
 workflows:
   # Name the workflow "welcome"
