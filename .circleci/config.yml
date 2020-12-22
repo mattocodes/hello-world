@@ -36,9 +36,9 @@ jobs:
       - run: 
           name: Hello World File Output
           command: |
-            echo "Text to output here. Some text..." > ~/output.txt
+            echo "Text to output here. Some text..." > /tmp/my-work/output.txt
       - persist_to_workspace:
-          root: ~/
+          root: /tmp/my-work
           paths:
               - output.txt
 
@@ -47,12 +47,12 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-          at: ~/
+          at: /tmp/my-work
       - run:
           name: Print Output File
           command: |
-            ls ~/
-            cat ~/output.txt 
+            ls -la ~/
+            cat output.txt
 
 workflows:
   # Name the workflow "welcome"
