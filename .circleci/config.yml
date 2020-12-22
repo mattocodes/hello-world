@@ -38,7 +38,7 @@ jobs:
           command: |
             echo "Text to output here. Some text..." > output.txt
       - persist_to_workspace:
-          root: /tmp/my-workspace
+          root: /tmp/dir
           paths:
               - output.txt
 
@@ -47,7 +47,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-          at: /tmp/my-workspace
+          at: /tmp/dir
       - run:
           name: Print Output File
           command: |
