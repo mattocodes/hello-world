@@ -36,7 +36,7 @@ jobs:
       - run: 
           name: Hello World File Output
           command: |
-            echo "Text to output here. Some text..." > output.txt
+            echo "Text to output here. Some text..." > ~/output.txt
       - persist_to_workspace:
           root: ~/
           paths:
